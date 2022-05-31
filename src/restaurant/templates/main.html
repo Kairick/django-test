@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div>
+    <h1>Меню</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for category in categories %}
+            <h2>{{ category.label }}</h2>
+            {% for dish in dishes %}
+
+
+                {% if dish.get_category_display == category.label %}
+                    <div class="dish">
+                        <div>
+                            <input type="checkbox"
+                                   value={{ dish.id }} name="dishes_id">
+                        </div>
+                        <h3><span>{{ dish.name }}</span></h3>
+                        <h4><span>Цена - {{ dish.price }} рублей</span></h4>
+                        <h4>
+                            <span>{{ dish.nutritional_value }} Ккал</span>
+                        </h4>
+                        <span>
+                      <a href="{{ dish.image.url }}">
+                          <img src="{{ dish.image_thumbnail.url }}"
+                               alt="картинка">
+                      </a>
+                 </span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <br/>
+        <button class='btn btn-secondary' type="submit">Заказать!</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="order">
+<h1>Заказ</h1>
+{% for dish in dishes %}
+<h3>
+{{forloop.counter}}. {{ dish.name }}
+</h3>
+
+
+<div>
+    <h3>Аллергены</h3>
+    {% for allergen in dish.allergens.all %}
+        <div>
+            <h4>{{forloop.counter}}. {{ allergen }}</h4>
+        </div>
+        {% endfor %}
+    <br>
+{% endfor %}
+</div>
+
+<br>
+Итого: {{ total }}
+<br>
+<a href="{% url 'restaurant:menu' %}"><input type="button" value="Назад"></a>
+</div>
+
+</body>
+</html>

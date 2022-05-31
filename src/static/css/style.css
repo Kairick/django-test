@@ -1,0 +1,37 @@
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+h1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+span {
+    margin-left: 10px;
+}
+
+.dish {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.order {
+    flex: 0 0 50%;
+}
+
+.order, .allergen {
+    display: flex;
+    flex-width: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
