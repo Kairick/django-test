@@ -46,7 +46,3 @@ DEBUG=False
 Сервер доступен по адресу 0.0.0.0
 
 адрес добавления блюда - http:/0.0.0.0/api/menu/new
-
-Для запуска тестов:
-1. Зайти внутрь докера docker exec -it web /bin/bash
-2. Выполнить команду cd src && python -m pytest
