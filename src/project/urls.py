@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', lambda req: redirect('menu/')),
     path(
         'api/menu/', include(('restaurant_api.urls', 'restaurant_api'))
     ),

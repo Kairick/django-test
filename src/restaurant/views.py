@@ -22,11 +22,7 @@ def all_dishes(request):
 def order(request, dish_ids):
     """Представление заказа"""
     ids = json.loads(dish_ids)
-    dishes = Dish.objects.filter(
-        id__in=ids
-    ).prefetch_related(
-        'allergens'
-    ).annotate(sum=Sum('price'))
+    dishes = Dish.objects.filter(id__in=ids).prefetch_related('allergens')
     total = sum([dish.price for dish in dishes])
 
     return render(request, 'order.html', {'dishes': dishes, 'total': total})
