@@ -3,7 +3,7 @@ from rest_framework import permissions
 
 
 class JwtAuth(permissions.BasePermission):
-    """Права доступа по JWT токену"""
+    """Права доступа по JWT"""
 
     def has_permission(self, request, view):
         """Устанавливает общие права на доступ"""

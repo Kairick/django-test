@@ -1,6 +1,5 @@
 import json
 
-from django.db.models import Sum
 from django.shortcuts import redirect, render
 
 from restaurant.models import Category, Dish
@@ -16,7 +15,7 @@ def all_dishes(request):
         return redirect('restaurant:orders', dish_ids=id_list)
 
     return render(request, 'main.html',
-              {'dishes': dishes, 'categories': Category})
+                  {'dishes': dishes, 'categories': Category})
 
 
 def order(request, dish_ids):
